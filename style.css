@@ -13,11 +13,7 @@
 }
 
 html.theme-dark {
-    --background: url('background.jpg');
-    --background-size: cover;
-    --background-position: center;
-    --background-attachment: fixed;
-    --bg-color: #111827;
+    --bg-color: url('background.jpg');
     --text-color: #d1d5db;
     --primary-color: #6366f1;
     --border-color: #374151;
