@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentation Maker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script type="importmap">
+    {
+        "imports": {
+            "main": "./script.js"
+        }
+    }
+    </script>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Presentation Maker</h1>
+            <div class="controls">
+                <div class="theme-selector">
+                    <label for="theme">Theme:</label>
+                    <select id="theme">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                        <option value="sepia">Sepia</option>
+                        <option value="blueprint">Blueprint</option>
+                    </select>
+                </div>
+                <button id="export-btn">Export Slideshow</button>
+            </div>
+        </header>
+
+        <main id="editor">
+            <form id="presentation-form" onsubmit="return false;">
+                <fieldset class="slide-editor">
+                    <legend>1. Opening</legend>
+                    <p>Good morning/afternoon, everyone. My name is <input type="text" id="s1_name" placeholder="your name">, and I'm <input type="text" id="s1_role" placeholder="your role/title">.</p>
+                    <p>Today, I'm going to talk about <input type="text" id="s1_topic" placeholder="your topic" class="long-input"></p>
+                    <p>This topic is important because <input class="long-input" type="text" id="s1_importance" placeholder="reason for importance"></p>
+                </fieldset>
+
+                <fieldset class="slide-editor">
+                    <legend>2. Outline</legend>
+                    <p>In my presentation today, I'll cover three main points:</p>
+                    <p>First, I'll discuss <input type="text" id="s2_point1_short" placeholder="first main point" class="long-input"></p>
+                    <p>Second, we'll explore <input type="text" id="s2_point2_short" placeholder="second main point" class="long-input"></p>
+                    <p>Finally, I'll explain <input type="text" id="s2_point3_short" placeholder="third main point" class="long-input"></p>
+                    <p>By the end of this presentation, you will <input class="long-input" type="text" id="s2_outcome" placeholder="what the audience will learn"></p>
+                </fieldset>
+
+                <fieldset class="slide-editor">
+                    <legend>3. Main Point 1</legend>
+                    <label for="s3_title">Slide Title:</label>
+                    <input type="text" id="s3_title" readonly placeholder="First main point from Outline">
+                    <p>Let's begin with my first point: <input class="long-input" type="text" id="s3_point1_full" placeholder="restate the point"></p>
+                    <label for="s3_elaboration">To elaborate on this:</label>
+                    <textarea id="s3_elaboration" placeholder="details and explanation"></textarea>
+                    <label for="s3_example">For example:</label>
+                    <textarea id="s3_example" placeholder="a concrete example"></textarea>
+                    <label for="s3_takeaway">The key takeaway here is that:</label>
+                    <textarea id="s3_takeaway" placeholder="summarize the key takeaway"></textarea>
+                </fieldset>
+
+                <fieldset class="slide-editor">
+                    <legend>4. Main Point 2</legend>
+                    <label for="s4_title">Slide Title:</label>
+                    <input type="text" id="s4_title" readonly placeholder="Second main point from Outline">
+                    <p>Moving on to my second point: <input class="long-input" type="text" id="s4_point2_full" placeholder="restate the point"></p>
+                    <label for="s4_significance">This is significant because:</label>
+                    <textarea id="s4_significance" placeholder="explain the significance"></textarea>
+                    <label for="s4_example">Consider this:</label>
+                    <textarea id="s4_example" placeholder="an example or case study"></textarea>
+                    <label for="s4_lesson">What we can learn from this is:</label>
+                    <textarea id="s4_lesson" placeholder="the lesson to be learned"></textarea>
+                </fieldset>
+
+                <fieldset class="slide-editor">
+                    <legend>5. Main Point 3</legend>
+                    <label for="s5_title">Slide Title:</label>
+                    <input type="text" id="s5_title" readonly placeholder="Third main point from Outline">
+                    <p>Finally, let's discuss my third point: <input class="long-input" type="text" id="s5_point3_full" placeholder="restate the point"></p>
+                    <label for="s5_perspective">To put this into perspective:</label>
+                    <textarea id="s5_perspective" placeholder="provide context or perspective"></textarea>
+                    <label for="s5_illustration">A compelling illustration of this is:</label>
+                    <textarea id="s5_illustration" placeholder="a compelling illustration"></textarea>
+                    <label for="s5_importance">The importance of this cannot be overstated because:</label>
+                    <textarea id="s5_importance" placeholder="reason for its high importance"></textarea>
+                </fieldset>
+
+                <fieldset class="slide-editor">
+                    <legend>6. Closing</legend>
+                    <p>In conclusion, today we've covered three key points:</p>
+                    <ol>
+                        <li><input type="text" id="s6_summary1" readonly placeholder="First main point"></li>
+                        <li><input type="text" id="s6_summary2" readonly placeholder="Second main point"></li>
+                        <li><input type="text" id="s6_summary3" readonly placeholder="Third main point"></li>
+                    </ol>
+                    <label for="s6_message">The main message I want you to remember is:</label>
+                    <textarea id="s6_message" placeholder="the single most important message"></textarea>
+                    <p>Thank you for your attention. I'm now happy to answer any questions you might have about <input type="text" id="s6_qna_topic" readonly placeholder="your topic">.</p>
+                </fieldset>
+            </form>
+            <div id="pagination-controls">
+                <div id="progress-bar-container">
+                    <div id="progress-bar"></div>
+                </div>
+                <div class="pagination-buttons">
+                    <button id="prev-btn">Previous</button>
+                    <button id="next-btn">Next</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p><a href="https://app.aaronshi.cc/" target="_blank" rel="noopener noreferrer">Back to AaronShi.cc App</a> | <a href="https://www.aaronshi.cc" target="_blank" rel="noopener noreferrer">Visit AaronShi.cc</a></p>
+    </footer>
+    <script type="module">
+        import "main";
+    </script>
+</body>
+</html>
