@@ -47,6 +47,10 @@ html.theme-blueprint {
 
 body {
     font-family: var(--font-family);
+    background: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     background-color: var(--bg-color);
     color: var(--text-color);
     margin: 0;
