@@ -13,7 +13,7 @@
 }
 
 html.theme-dark {
-    --bg-color: url('background.jpg');
+    --bg-color: #111827;
     --text-color: #d1d5db;
     --primary-color: #6366f1;
     --border-color: #374151;
